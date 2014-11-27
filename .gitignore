@@ -12,6 +12,3 @@ local.properties
 .gradle/
 build/
 *.iml
-
-# Sensitive data
-gradle.properties
