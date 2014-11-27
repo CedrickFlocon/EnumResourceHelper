@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="BURMA_STRING">Myanmar</string>
+	<string name="ICELAND_STRING">Islande</string>
+	<string name="TURKEY_STRING">Turquie</string>
+	<string name="AUSTRALIA_STRING">Australie</string>
+
+</resources>

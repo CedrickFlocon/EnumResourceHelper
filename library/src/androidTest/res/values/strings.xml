@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="BURMA_STRING">Burma</string>
+	<string name="ISO_BURMA_STRING">MM</string>
+
+	<string name="ICELAND_STRING">Iceland</string>
+	<string name="ISO_ICELAND_STRING">IS</string>
+
+	<string name="TURKEY_STRING">Turkey</string>
+	<string name="ISO_TURKEY_STRING">TR</string>
+
+	<string name="AUSTRALIA_STRING">Australia</string>
+	<string name="ISO_AUSTRALIA_STRING">AU</string>
+
+</resources>
