@@ -1,0 +1,17 @@
+# Mac OS X clutter
+*.DS_Store
+
+# Windows clutter
+Thumbs.db
+
+# Local configuration file
+local.properties
+
+# Android Studio
+.idea
+.gradle/
+build/
+*.iml
+
+# Sensitive data
+gradle.properties
