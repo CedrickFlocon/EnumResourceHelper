@@ -1,0 +1,20 @@
+<resources>
+
+	<string name="BURMA_STRING">Burma</string>
+	<string name="ISO_BURMA_STRING">MM</string>
+
+	<string name="ICELAND_STRING">Iceland</string>
+	<string name="ISO_ICELAND_STRING">IS</string>
+
+	<string name="TURKEY_STRING">Turkey</string>
+	<string name="ISO_TURKEY_STRING">TR</string>
+
+	<string name="AUSTRALIA_STRING">Australia</string>
+	<string name="ISO_AUSTRALIA_STRING">AU</string>
+
+	<string name="country">Country</string>
+	<string name="iso_code">Iso code</string>
+	<string name="change_local_to_french">change to french</string>
+	<string name="change_local_to_default">change to default</string>
+	<string name="app_name">Sample EnumResource</string>
+</resources>

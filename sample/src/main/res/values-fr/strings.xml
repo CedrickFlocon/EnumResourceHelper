@@ -1,0 +1,20 @@
+<resources>
+
+	<string name="BURMA_STRING">Myanmar</string>
+	<string name="ISO_BURMA_STRING">MM</string>
+
+	<string name="ICELAND_STRING">Islande</string>
+	<string name="ISO_ICELAND_STRING">IS</string>
+
+	<string name="TURKEY_STRING">Turquie</string>
+	<string name="ISO_TURKEY_STRING">TR</string>
+
+	<string name="AUSTRALIA_STRING">Australie</string>
+	<string name="ISO_AUSTRALIA_STRING">AU</string>
+
+	<string name="country">Pays</string>
+	<string name="iso_code">Code Iso</string>
+	<string name="change_local_to_french">Passer en français</string>
+	<string name="change_local_to_default">Passer en langue par défaut</string>
+	<string name="app_name">Démo EnumResource</string>
+</resources>

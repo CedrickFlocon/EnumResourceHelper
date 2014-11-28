@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_margin="10dp"
+		android:gravity="center">
+
+		<TextView
+			android:text="@string/country"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="10dp"/>
+
+
+		<Spinner
+			android:id="@+id/spinnerCountry"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_margin="10dp"
+		android:gravity="center">
+
+		<TextView
+			android:text="@string/iso_code"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="10dp"/>
+
+
+		<TextView
+			android:id="@+id/textViewIsoCode"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+
+
+	</LinearLayout>
+
+</LinearLayout>
