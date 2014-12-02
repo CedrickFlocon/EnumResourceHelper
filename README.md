@@ -4,6 +4,48 @@ EnumResource
 EnumResource is a tiny Android library use to bind Enum to Android resource.
 
 
+Quick Setup
+------------
+**Gradle dependency:**
+
+
+	compile 'com.github.CedrickFlocon:enumresource:0.1'
+
+**Resource File (string.xml):**
+
+
+	<resources>
+		<string name="BURMA_STRING">Myanmar</string>
+	</resources>
+
+**Java Code:**
+
+	public class MainActivity extends Activity {
+
+		private enum Country{
+			BURMA,
+			ICELAND,
+			TURKEY,
+			AUSTRALIA
+		}
+
+		@Override
+		public void onCreate() {
+			super.onCreate();
+
+			EnumResourceHelper<Country> countryEnumResourceHelper = new EnumResourceHelper<>(Country.class, EnumResourceHelper.ResourceType.STRING, this, null, "_STRING");
+
+			String country = countryEnumResourceHelper.getResourceString(BURMA);
+			Toast toast = Toast.makeText(this, country, Toast.LENGTH_LONG); // Display "Myanmar"
+			Country burma = countryEnumResourceHelper.getEnumValue(country); // burma == Country.BURMA
+			...
+		}
+	}
+
+
+Look at the sample project.
+
+
 Contributing
 ------------
 Feel free to improve the code and send me pull requests!
