@@ -8,18 +8,22 @@ Quick Setup
 ------------
 **Gradle dependency:**
 
-
+``` groovy
 	compile 'com.github.CedrickFlocon:enumresource:0.1'
+```
+
 
 **Resource File (string.xml):**
 
-
+``` xml
 	<resources>
 		<string name="BURMA_STRING">Myanmar</string>
 	</resources>
+```
+
 
 **Java Code:**
-
+``` java
 	public class MainActivity extends Activity {
 
 		private enum Country{
@@ -35,15 +39,15 @@ Quick Setup
 
 			EnumResourceHelper<Country> countryEnumResourceHelper = new EnumResourceHelper<>(Country.class, EnumResourceHelper.ResourceType.STRING, this, null, "_STRING");
 
-			String country = countryEnumResourceHelper.getResourceString(BURMA);
+			String country = countryEnumResourceHelper.getResourceString(Country.BURMA);
 			Toast toast = Toast.makeText(this, country, Toast.LENGTH_LONG); // Display "Myanmar"
 			Country burma = countryEnumResourceHelper.getEnumValue(country); // burma == Country.BURMA
 			...
 		}
 	}
+```
 
-
-Look at the sample project.
+Or look at the sample project.
 
 
 Contributing
