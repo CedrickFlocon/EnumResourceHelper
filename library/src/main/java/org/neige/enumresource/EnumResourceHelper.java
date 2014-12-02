@@ -10,11 +10,11 @@ import java.util.Map;
 
 /**
  * Help to localize enum.
- * <p/>
+ * 
  * The name of resource for the label must match the name of the enumeration with suffix and prefix
- * value. For example, for enum value 'ENUM1' the resource would be defined as 'R.string.<SUFFIX>ENUM1<PREFIX></>'.
+ * value. For example, for enum value 'ENUM1' the resource would be defined as 'R.string.ENUM1'.
  * If no label has been defined, then the string is {@link Enum#name()}.
- * <p/>
+ * 
  */
 public class EnumResourceHelper<T extends Enum<T>> {
 
