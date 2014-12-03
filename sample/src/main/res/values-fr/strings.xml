@@ -17,4 +17,5 @@
 	<string name="change_local_to_french">Passer en français</string>
 	<string name="change_local_to_default">Passer en langue par défaut</string>
 	<string name="app_name">Démo EnumResource</string>
+	<string name="flag">Drapeau</string>
 </resources>

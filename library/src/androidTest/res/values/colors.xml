@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="BURMA_COLOR">#FF00FF00</string>
-	<string name="ICELAND_COLOR">#FF0000FF</string>
-	<string name="TURKEY_COLOR">#FFFF0000</string>
-	<string name="AUSTRALIA_COLOR">#FFFFFF00</string>
+	<color name="BURMA_COLOR">#FF00FF00</color>
+	<color name="ICELAND_COLOR">#FF0000FF</color>
+	<color name="TURKEY_COLOR">#FFFF0000</color>
+	<color name="AUSTRALIA_COLOR">#FFFFFF00</color>
 </resources>

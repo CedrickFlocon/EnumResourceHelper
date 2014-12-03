@@ -9,7 +9,7 @@ Quick Setup
 **Gradle dependency:**
 
 ``` groovy
-	compile 'com.github.CedrickFlocon:enumresource:0.1'
+	compile 'com.github.CedrickFlocon:enumresource:0.2'
 ```
 
 
@@ -37,11 +37,11 @@ Quick Setup
 		public void onCreate() {
 			super.onCreate();
 
-			EnumResourceHelper<Country> countryEnumResourceHelper = new EnumResourceHelper<>(Country.class, EnumResourceHelper.ResourceType.STRING, this, null, "_STRING");
+			EnumResourceStringHelper<Country> countryEnumResourceHelper = new EnumResourceStringHelper<>(Country.class, EnumResourceHelper.ResourceType.STRING, this, null, "_STRING");
 
-			String country = countryEnumResourceHelper.getResourceString(Country.BURMA);
+			String country = countryEnumResourceHelper.getResource(Country.BURMA);
 			Toast toast = Toast.makeText(this, country, Toast.LENGTH_LONG); // Display "Myanmar"
-			Country burma = countryEnumResourceHelper.getEnumValue(country); // burma == Country.BURMA
+			Country burma = countryEnumResourceHelper.getEnum(country); // burma == Country.BURMA
 			...
 		}
 	}

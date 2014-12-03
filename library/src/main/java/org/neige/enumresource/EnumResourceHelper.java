@@ -1,6 +1,7 @@
 package org.neige.enumresource;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -9,47 +10,31 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Help to localize enum.
- * 
- * The name of resource for the label must match the name of the enumeration with suffix and prefix
- * value. For example, for enum value 'ENUM1' the resource would be defined as 'R.string.ENUM1'.
- * If no label has been defined, then the string is {@link Enum#name()}.
- * 
+ * Helper to localize enum
+ * @param <T> Enum Type
+ * @param <U> Resource Type
  */
-public class EnumResourceHelper<T extends Enum<T>> {
+abstract class EnumResourceHelper<T extends Enum<T>, U> {
 
-	public enum ResourceType {
-		STRING("string"),
-		COLOR("color");
+	protected final String LOG_TAG = "EnumResourceHelper";
 
-		private String resourceTypeString;
+	protected Class<T> enumType;
+	protected EnumMap<T, U> enumMap;
+	private String enumPrefix, enumSuffix;
 
-		private ResourceType(String resourceTypeString) {
-			this.resourceTypeString = resourceTypeString;
-		}
-	}
-
-	private Context context;
-	private ResourceType resourceType;
-	private Class<T> enumType;
-	private EnumMap<T, String> enumMap;
-	private String enumPrefix = "", enumSuffix = "";
-
-	 /**
+	/**
 	 * Constructor
 	 * @param enumType enumeration type
-	 * @param context application context needed for get string from resource
-	 * @param resourceType type of resource like String Color ...
-	 * @param enumSuffix suffix of the enum in the resource file
-	 * @param enumPrefix prefix of the enum in the resource file
+	 * @param context application context needed to get resource from enum value
+	 * @param resourcePrefix prefix of the enum in the resource file
+	 * @param resourceSuffix suffix of the enum in the resource file
 	 */
-	public EnumResourceHelper(Class<T> enumType, ResourceType resourceType, Context context, @Nullable String enumSuffix, @Nullable String enumPrefix) {
+	public EnumResourceHelper(@NonNull Class<T> enumType, @NonNull Context context, @Nullable String resourcePrefix,
+							  @Nullable String resourceSuffix) {
 		this.enumType = enumType;
 		this.enumMap = new EnumMap<>(enumType);
-		this.enumPrefix = enumPrefix == null ? "" : enumPrefix;
-		this.enumSuffix = enumSuffix == null ? "" : enumSuffix;
-		this.context = context;
-		this.resourceType = resourceType;
+		this.enumPrefix = resourcePrefix == null ? "" : resourcePrefix;
+		this.enumSuffix = resourceSuffix == null ? "" : resourceSuffix;
 
 		changeContext(context);
 	}
@@ -58,41 +43,35 @@ public class EnumResourceHelper<T extends Enum<T>> {
 	 * Change the context used to get resource information
 	 * @param context to be used
 	 */
-	public void changeContext(Context context){
-		for (T value : enumType.getEnumConstants()) {
-			int resourceId = context.getResources().getIdentifier(enumSuffix + value.name() + enumPrefix, resourceType.resourceTypeString, context.getPackageName());
-			if (resourceId != 0) {
-				enumMap.put(value, context.getResources().getString(resourceId));
-			} else {
-				enumMap.put(value, value.name());
-			}
-		}
+	public void changeContext(Context context) {
+		initMap(context);
 	}
 
 	/**
-	 * Get all Localized string from enumType
-	 * @return list of all localized string
+	 * Get the resource name regarding to prefix, suffix, and enum.name()
+	 * @param value value of the enum
+	 * @return string of the resource
 	 */
-	public List<String> getResourceString() {
-		return getResourceString(enumType.getEnumConstants());
+	protected String getResourceName(T value) {
+		return enumPrefix + value.name() + enumSuffix;
 	}
 
 	/**
-	 * Get localized string for enumValue
-	 * @param enumValue enum to be localized
-	 * @return String of the enumValue
+	 * Get resource for an enum
+	 * @param enumValue enum value
+	 * @return list of resource
 	 */
-	public String getResourceString(T enumValue) {
+	public U getResource(T enumValue) {
 		return enumMap.get(enumValue);
 	}
 
 	/**
-	 * Get localized string for enumValues
-	 * @param enumValues enum to be localized
-	 * @return list of localized enumValues
+	 * Get resource for enumValues
+	 * @param enumValues values of enum
+	 * @return list of resource
 	 */
-	public List<String> getResourceString(T... enumValues) {
-		List<String> localizedString = new ArrayList<>();
+	public List<U> getResource(T... enumValues) {
+		List<U> localizedString = new ArrayList<>();
 		for (T enumValue : enumValues) {
 			localizedString.add(enumMap.get(enumValue));
 		}
@@ -100,14 +79,22 @@ public class EnumResourceHelper<T extends Enum<T>> {
 	}
 
 	/**
-	 * Get enum value from localized string (take the first enum value match regarding EnumClass.getEnumConstants() order)
-	 * @param enumString localized string
-	 * @return enum value
+	 * Get all the resource of the enum
+	 * @return list of all localized string
 	 */
-	public T getEnumValue(String enumString) {
-		if (enumMap.containsValue(enumString)) {
-			for (Map.Entry<T, String> map : enumMap.entrySet()) {
-				if (map.getValue().equals(enumString)) {
+	public List<U> getResource() {
+		return getResource(enumType.getEnumConstants());
+	}
+
+	/**
+	 * Get enum value from resource value (take the first enum value match regarding EnumClass.getEnumConstants() order)
+	 * @param resourceValue resource value
+	 * @return enum value found otherwise null
+	 */
+	public T getEnum(U resourceValue) {
+		if (enumMap.containsValue(resourceValue)) {
+			for (Map.Entry<T, U> map : enumMap.entrySet()) {
+				if (map.getValue().equals(resourceValue)) {
 					return map.getKey();
 				}
 			}
@@ -115,4 +102,9 @@ public class EnumResourceHelper<T extends Enum<T>> {
 		return null;
 	}
 
+	/**
+	 * Init enumMap with key as enum value and U as resource value
+	 * @param context context needed to get resource
+	 */
+	protected abstract void initMap(Context context);
 }
