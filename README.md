@@ -1,17 +1,32 @@
 EnumResource
 =================
 
-EnumResource is a tiny Android library use to bind Enum to Android resource.
+EnumResource is a tiny Android library use to bind Enum to Android resource (base on reflexion).
 
+### Implemented Resource
+	* String
+	* Color
+	* Drawable
 
 Quick Setup
 ------------
+
+In the repository you have a sample to help you.
+
 **Gradle dependency:**
 
 ``` groovy
 	compile 'com.github.CedrickFlocon:enumresource:0.2'
 ```
 
+**Maven dependency:**
+``` groovy
+	<dependency>
+		<groupId>com.github.CedrickFlocon</groupId>
+		<artifactId>enumresource</artifactId>
+		<version>0.2</version>
+	</dependency>
+```
 
 **Resource File (string.xml):**
 
@@ -46,8 +61,6 @@ Quick Setup
 		}
 	}
 ```
-
-Or look at the sample project.
 
 
 Contributing
