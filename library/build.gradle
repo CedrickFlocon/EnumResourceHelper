@@ -6,7 +6,6 @@ android {
     buildToolsVersion "21.1.1"
 
     defaultConfig {
-        applicationId "org.neige.enumresource"
         minSdkVersion 1
         targetSdkVersion 21
     }
