@@ -62,6 +62,19 @@ In the repository you have a sample to help you.
 	}
 ```
 
+**Proguard configuration:**
+As this library use reflexion to bind enum to resource ou can't obfuscate the enum.
+So add this to your proguard rules :
+Public enum :
+``` proguard
+-keep class my.package.name.MyEnum { *; }
+```
+
+Inner enum :
+``` proguard
+-keep class my.package.name.MyClass$MyEnum { *; }
+```
+
 
 Contributing
 ------------

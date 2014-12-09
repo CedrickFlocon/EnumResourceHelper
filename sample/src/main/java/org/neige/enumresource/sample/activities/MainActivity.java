@@ -1,4 +1,4 @@
-package org.neige.enumresource;
+package org.neige.enumresource.sample.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,17 +9,13 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.neige.enumresource.EnumResourceDrawableHelper;
+import org.neige.enumresource.EnumResourceStringHelper;
 import org.neige.enumresource.sample.R;
+import org.neige.enumresource.sample.model.Country;
+
 
 public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener {
-
-
-	private enum Country{
-		BURMA,
-		ICELAND,
-		TURKEY,
-		AUSTRALIA
-	}
 
 	private Spinner spinnerCountry;
 	private TextView textViewIsoCode;

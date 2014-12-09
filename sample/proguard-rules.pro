@@ -1,0 +1,1 @@
+-keep public class org.neige.enumresource.sample.model.Country { *; }
